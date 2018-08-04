@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 class Contact extends Component {
   state = {
-    showContactInfo: true
+    showContactInfo: false
   };
   static propTypes = {
     name: PropTypes.string.isRequired,
@@ -25,7 +25,12 @@ class Contact extends Component {
     phone: 'Phone not inserted.'
   };
 
-  onShowClick = () => {
+  onShowClick = e => {
+    if (this.state.showContactInfo) {
+      e.target.innerText = 'Show';
+    } else {
+      e.target.innerText = 'Hide';
+    }
     this.setState({ showContactInfo: !this.state.showContactInfo });
   };
 
