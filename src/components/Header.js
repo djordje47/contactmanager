@@ -8,7 +8,7 @@ const Header = props => {
   const { branding } = props;
   return (
     <div>
-      <h1>{branding}</h1>
+      <h1 style={headerSyle}>{branding}</h1>
     </div>
   );
 };
@@ -22,6 +22,12 @@ Header.defaultProps = {
 // Validates the property Type this one must be string or we will get warning in the          console
 Header.propType = {
   branding: PropTypes.string.isRequired
+};
+
+// Adding header styles in the object
+const headerSyle = {
+  color: 'green',
+  fontSize: '50px'
 };
 
 // Exports functional component (Component that won't have state)
