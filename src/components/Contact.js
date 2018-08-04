@@ -23,7 +23,7 @@ class Contact extends Component {
   };
 
   render() {
-    const { name, email, phone } = this.props;
+    const { name, email, phone } = this.props.contact;
     return (
       <div className="card mb-3">
         <div className="card-body">
