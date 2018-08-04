@@ -21,17 +21,19 @@ class Contact extends Component {
     email: 'Email not inserted.',
     phone: 'Phone not inserted.'
   };
-  onShowClick() {
-    console.log('clicked');
-  }
+
+  onShowClick = e => {
+    console.log(e.target);
+  };
+
   render() {
     const { name, email, phone } = this.props.contact;
     return (
       <div className="card mb-3">
         <div className="card-body">
-          <h4 className="card-title">
+          <h4 className="card-title" onClick={this.onShowClick}>
             {name}
-            <i onClick={this.onShowClick} className="fas fa-sort-down" />
+            <i className="fas fa-sort-down" />
           </h4>
           <ul className="list-group">
             <li className="list-group-item">Email: {email}</li>
