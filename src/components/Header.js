@@ -8,13 +8,12 @@ const Header = props => {
   const { branding } = props;
   return (
     <div>
-      <h1 style={headerSyle}>{branding}</h1>
+      <h1>{branding}</h1>
     </div>
   );
 };
 
 // Adding default properties to header if we remove branding from our Header component in     app.js, the default property will be used.
-
 Header.defaultProps = {
   branding: 'MyApp'
 };
@@ -22,12 +21,6 @@ Header.defaultProps = {
 // Validates the property Type this one must be string or we will get warning in the          console
 Header.propType = {
   branding: PropTypes.string.isRequired
-};
-
-// Adding header styles in the object
-const headerSyle = {
-  color: 'green',
-  fontSize: '50px'
 };
 
 // Exports functional component (Component that won't have state)
