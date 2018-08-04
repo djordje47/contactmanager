@@ -43,7 +43,7 @@ class Contact extends Component {
           <h4 className="card-title d-inline">{name}</h4>
           <a
             onClick={this.onShowClick}
-            className="btn btn-success btn-sm text-white d-block float-right"
+            className="btn btn-info btn-sm text-white d-block float-right"
           >
             Show
           </a>
