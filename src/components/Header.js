@@ -9,5 +9,11 @@ const Header = props => {
     </div>
   );
 };
+
+// Adding default properties to header if we remove branding from our Header component in     app.js, the default property will be used.
+Header.defaultProps = {
+  branding: 'MyApp'
+};
+
 // Exports functional component (Component that won't have state)
 export default Header;
