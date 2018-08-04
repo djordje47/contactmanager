@@ -16,7 +16,8 @@ class Contact extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired
+    phone: PropTypes.string.isRequired,
+    deleteClickHandler: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -24,7 +25,7 @@ class Contact extends Component {
     email: 'Email not inserted.',
     phone: 'Phone not inserted.'
   };
-
+  // Show info
   onShowClick = e => {
     if (this.state.showContactInfo) {
       e.target.innerText = 'Show';
@@ -32,6 +33,10 @@ class Contact extends Component {
       e.target.innerText = 'Hide';
     }
     this.setState({ showContactInfo: !this.state.showContactInfo });
+  };
+  // Delete contact
+  onClickDelete = e => {
+    this.props.deleteClickHandler();
   };
 
   render() {
@@ -41,12 +46,24 @@ class Contact extends Component {
       <div className="card mb-3">
         <div className="card-body p-2">
           <h4 className="card-title d-inline">{name}</h4>
-          <a
-            onClick={this.onShowClick}
-            className="btn btn-info btn-sm text-white d-block float-right"
+          <div
+            className="btn-group float-right"
+            role="group"
+            aria-label="Basic example"
           >
-            Show
-          </a>
+            <a
+              onClick={this.onShowClick}
+              className="btn btn-info btn-sm text-white d-block float-right"
+            >
+              Show
+            </a>
+            <a
+              onClick={this.onClickDelete}
+              className="btn btn-danger btn-sm text-white d-block float-right"
+            >
+              Delete
+            </a>
+          </div>
         </div>
         {showContactInfo ? (
           <ul className="list-group">
