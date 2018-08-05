@@ -18,6 +18,12 @@ class AddContact extends Component {
       phone
     };
     dispatch({ type: 'ADD_CONTACT', payload: newContact });
+    // Clear the form
+    this.setState({
+      name: '',
+      email: '',
+      phone: ''
+    });
   };
   onChange = e => {
     this.setState({
