@@ -6,7 +6,10 @@ class AddContact extends Component {
     email: '',
     phone: ''
   };
-
+  onSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+  };
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -19,7 +22,7 @@ class AddContact extends Component {
       <div className="card mb-3">
         <div className="card-header">AddContact</div>
         <div className="card-body">
-          <form>
+          <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -32,7 +35,7 @@ class AddContact extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Name</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 className="form-control form-control-lg"
