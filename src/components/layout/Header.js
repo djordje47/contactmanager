@@ -2,6 +2,8 @@
 import React from 'react';
 // Imports prop-types
 import PropTypes from 'prop-types';
+//
+import { Link } from 'react-router-dom';
 
 // Creates functional component
 const Header = props => {
@@ -15,9 +17,22 @@ const Header = props => {
         <div>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a href="/" className="nav-link text-white">
+              <Link to="/" className="nav-link text-white">
+                <i className="fas fa-home" />
                 Home
-              </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contact/add" className="nav-link text-white">
+                <i className="fas fa-plus" />
+                Add
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link text-white">
+                <i className="fas fa-question" />
+                About
+              </Link>
             </li>
           </ul>
         </div>
