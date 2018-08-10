@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
+import axios from 'axios';
 /**
  * Creates new class component called Contact that extends React.Component
  * and has render method that renders User
@@ -36,7 +37,11 @@ class Contact extends Component {
   };
   // Delete contact
   onClickDelete = (id, dispatch) => {
-    dispatch({ type: 'DELETE_CONTACT', payload: id });
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(res => {
+        dispatch({ type: 'DELETE_CONTACT', payload: id });
+      });
   };
 
   render() {
