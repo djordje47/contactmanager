@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 /**
  * Creates new class component called Contact that extends React.Component
  * and has render method that renders User
@@ -76,6 +77,12 @@ class Contact extends Component {
                   >
                     Delete
                   </a>
+                  <Link
+                    to={`contact/edit/${id}`}
+                    className="btn btn-warning btn-sm text-white d-block float-right"
+                  >
+                    Edit
+                  </Link>
                 </div>
               </div>
               {showContactInfo ? (
