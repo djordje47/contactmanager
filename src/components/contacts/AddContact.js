@@ -12,7 +12,7 @@ class AddContact extends Component {
     errors: {}
   };
 
-  onSubmit = (dispatch, e) => {
+  onSubmit = async (dispatch, e) => {
     e.preventDefault();
     const { name, email, phone } = this.state;
 
@@ -24,13 +24,12 @@ class AddContact extends Component {
         phone
       };
       // Save contact
-      axios
-        .post('https://jsonplaceholder.typicode.com/users', newContact)
-        .then(res => {
-          dispatch({ type: 'ADD_CONTACT', payload: res.data });
-          console.log(res);
-        });
+      const res = await axios.post(
+        'https://jsonplaceholder.typicode.com/users',
+        newContact
+      );
 
+      dispatch({ type: 'ADD_CONTACT', payload: res.data });
       // Clear contact form
       this.setState({
         name: '',

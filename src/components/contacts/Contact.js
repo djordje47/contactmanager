@@ -36,12 +36,16 @@ class Contact extends Component {
     this.setState({ showContactInfo: !this.state.showContactInfo });
   };
   // Delete contact
-  onClickDelete = (id, dispatch) => {
-    axios
-      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(res => {
-        dispatch({ type: 'DELETE_CONTACT', payload: id });
-      });
+  onClickDelete = async (id, dispatch) => {
+    try {
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+      dispatch({ type: 'DELETE_CONTACT', payload: id });
+    } catch (e) {
+      dispatch({ type: 'DELETE_CONTACT', payload: id });
+      console.log(
+        `We have a 404 error here cause JSON Placeholder doesn't store our new contact in DB. So we can't delete something that doesn't exists ${e}`
+      );
+    }
   };
 
   render() {
